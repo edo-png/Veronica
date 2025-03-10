@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Veronica, il tuo sorriso illumina il mondo!</title>
+  <style>
+    /* Stili generali */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+      overflow-x: hidden;
+      position: relative;
+      text-align: center;
+      color: #fff;
+    }
+    header {
+      padding: 50px 20px;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px #ff69b4;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    button {
+      background-color: #ff69b4;
+      border: none;
+      padding: 20px 40px;
+      font-size: 1.2em;
+      color: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 0px 15px 5px rgba(255, 105, 180, 0.5);
+    }
+    .compliment-box {
+      margin-top: 40px;
+      font-size: 1.5em;
+      animation: fadeIn 1s ease;
+      min-height: 50px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    /* Stile dei cuoricini animati */
+    .heart {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 29.6"><path fill="%23ff69b4" d="M23.6,0c-3.4,0-6.3,2.1-7.6,5.1C14.7,2.1,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,4.6,3.4,8.4,8.4,13.6 c4.8,4.5,8.2,8.3,7.6,9c-0.6,0.7-3.1,2.9-7.6,6.5c-0.4,0.3-0.2,0.9,0.3,0.9h1c0.4,0,0.7-0.2,0.9-0.6c4.7-6.2,7.4-9.8,8.3-10.8 c0.9,1,3.6,4.6,8.3,10.8c0.2,0.4,0.6,0.6,1,0.6h1c0.5,0,0.7-0.6,0.3-0.9c-4.5-3.6-7-5.8-7.6-6.5c-0.6-0.7,2.8-4.5,7.6-9 C28.6,16.8,32,13,32,8.4C32,3.8,28.2,0,23.6,0z"/></svg>');
+      background-size: cover;
+      pointer-events: none;
+      animation: float 5s linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-100px) scale(1.2); }
+      100% { transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ciao Veronica!</h1>
+    <p>Questa pagina è tutta per te, per farti sorridere e ricordarti quanto sei speciale. Premi il bottone per ricevere un dolce complimento!</p>
+    <button id="compliment-btn">Ricevi un Complimento!</button>
+  </header>
+  <div class="compliment-box" id="compliment-box"></div>
+
+  <script>
+    // Array di complimenti divertenti e personalizzati per Veronica
+    const compliments = [
+      "Veronica, sei più dolce di una nuvola di zucchero filato!",
+      "Il tuo sorriso, Veronica, illumina anche la giornata più grigia.",
+      "Ogni tuo sguardo mi fa volare, Veronica, in un mondo di sogni.",
+      "Veronica, sei la regina del mio cuore e la musa che ispira i miei pensieri.",
+      "Con te, Veronica, ogni momento diventa una festa!",
+      "Il tuo stile è così unico, Veronica, che persino le stelle si inchinano!"
+    ];
+
+    // Funzione per mostrare un complimento casuale
+    function showCompliment() {
+      const randomCompliment = compliments[Math.floor(Math.random() * compliments.length)];
+      const complimentBox = document.getElementById('compliment-box');
+      complimentBox.innerHTML = randomCompliment;
+
+      // Crea e anima un cuore
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * (window.innerWidth - 50) + 'px';
+      heart.style.top = window.innerHeight + 'px';
+      document.body.appendChild(heart);
+
+      // Rimuovi il cuore dopo 5 secondi
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    // Event listener per il bottone
+    document.getElementById('compliment-btn').addEventListener('click', showCompliment);
+  </script>
+</body>
+</html>
