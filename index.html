@@ -3,36 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Veronica, il tuo sorriso illumina il mondo!</title>
+  <title>Ciao Veronica, sei unica!</title>
   <style>
     /* Stili generali */
     body {
       margin: 0;
       padding: 0;
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+      background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
       overflow-x: hidden;
       position: relative;
       text-align: center;
       color: #fff;
     }
     header {
-      padding: 50px 20px;
+      padding: 60px 20px;
     }
     h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 4px #ff69b4;
+      font-size: 4em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px #000;
     }
     p {
-      font-size: 1.2em;
+      font-size: 1.5em;
       margin-bottom: 30px;
     }
     button {
       background-color: #ff69b4;
       border: none;
       padding: 20px 40px;
-      font-size: 1.2em;
+      font-size: 1.5em;
       color: #fff;
       border-radius: 10px;
       cursor: pointer;
@@ -44,15 +44,15 @@
     }
     .compliment-box {
       margin-top: 40px;
-      font-size: 1.5em;
+      font-size: 1.8em;
       animation: fadeIn 1s ease;
-      min-height: 50px;
+      min-height: 60px;
     }
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    /* Stile dei cuoricini animati */
+    /* Animazione dei cuoricini */
     .heart {
       position: absolute;
       width: 50px;
@@ -72,43 +72,34 @@
 <body>
   <header>
     <h1>Ciao Veronica!</h1>
-    <p>Questa pagina è tutta per te, per farti sorridere e ricordarti quanto sei speciale. Premi il bottone per ricevere un dolce complimento!</p>
+    <p>Questa pagina è tutta per te. Premi il bottone per ricevere un dolce complimento!</p>
     <button id="compliment-btn">Ricevi un Complimento!</button>
   </header>
   <div class="compliment-box" id="compliment-box"></div>
 
   <script>
-    // Array di complimenti divertenti e personalizzati per Veronica
     const compliments = [
       "Veronica, sei più dolce di una nuvola di zucchero filato!",
-      "Il tuo sorriso, Veronica, illumina anche la giornata più grigia.",
-      "Ogni tuo sguardo mi fa volare, Veronica, in un mondo di sogni.",
-      "Veronica, sei la regina del mio cuore e la musa che ispira i miei pensieri.",
-      "Con te, Veronica, ogni momento diventa una festa!",
-      "Il tuo stile è così unico, Veronica, che persino le stelle si inchinano!"
+      "Il tuo sorriso illumina anche il giorno più buio, Veronica.",
+      "Ogni tuo sguardo mi fa volare, Veronica.",
+      "Veronica, sei la regina del mio cuore e la musa delle mie idee.",
+      "Con te, Veronica, ogni momento è una festa!",
+      "Il tuo stile è così unico che persino le stelle si inchinano!"
     ];
 
-    // Funzione per mostrare un complimento casuale
     function showCompliment() {
       const randomCompliment = compliments[Math.floor(Math.random() * compliments.length)];
-      const complimentBox = document.getElementById('compliment-box');
-      complimentBox.innerHTML = randomCompliment;
-
-      // Crea e anima un cuore
+      document.getElementById('compliment-box').innerHTML = randomCompliment;
       const heart = document.createElement('div');
       heart.classList.add('heart');
       heart.style.left = Math.random() * (window.innerWidth - 50) + 'px';
       heart.style.top = window.innerHeight + 'px';
       document.body.appendChild(heart);
-
-      // Rimuovi il cuore dopo 5 secondi
-      setTimeout(() => {
-        heart.remove();
-      }, 5000);
+      setTimeout(() => { heart.remove(); }, 5000);
     }
 
-    // Event listener per il bottone
     document.getElementById('compliment-btn').addEventListener('click', showCompliment);
   </script>
 </body>
 </html>
+
